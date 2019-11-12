@@ -1,22 +1,436 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Open+Sans&display=swap');
+@font-face {
+font-family: "PWChalk";
+src: url("./fonts/PWChalk/PWChalk.eot");
+src: url("./fonts/PWChalk/PWChalk.woff") format("woff"),
+url("./fonts/PWChalk/PWChalk.otf") format("opentype"),
+url("./fonts/PWChalk/PWChalk.svg#filename") format("svg");
+}
+
+:root {
+  --star-color: rgba(255,255,255);
+  --star-background: #FDCB05;
+}
+
+.header{
+  background: #000;
+  color: #fff;
+}
+footer{
+  background: #574747;
+  color: #D2CCC5;
+}
+footer .goose_name{
+  color: #D2CCC5;
+}
+.inner-header{
+  max-width: 1130px;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  flex-direction: row;
+}
+.goose_name{
+  text-decoration: none;
+  font-size: 40px;
+  color: #fff;
+}
+h1{
+  font-size: 60px;
+  color: #BEA58C;
+  font-family: 'OpenSans', sans-serif;
+  font-weight: bold;
+}
+h2{
+  color: #fff;
+  font-size: 40px;
+  font-family: 'OpenSans', sans-serif;
+  font-weight: bold;
+  margin: 0;
   text-align: center;
+  color: #BEA58C;
 }
-
-.App-logo {
-  height: 40vmin;
+h3{
+  font-size: 40px;
+  font-family: 'OpenSans', sans-serif;
+  font-weight: bold;
+  margin: 0;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.logo{
+  width: 62px;
+  height: 47px;
+  vertical-align: middle;
+  padding-right: 20px;
+}
+.header-right{
+  display: flex;
+  align-items: center;
+  flex-grow: 2;
+  justify-content: flex-end;
+}
+.open_hours{
+  font-size: 20px;
+  font-style: italic;
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-basis: 30%;
+}
+.tel{
+  font-size: 30px;
+  font-style: italic;
+  text-align: right;
+}
+.tel-icon{
+  padding-right: 10px;
+}
+.board-menu-wrap{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  min-height: calc(100vh - 70px);
+  color: #fff;
+}
+.board-menu{
+  width: 1132px;
+  height: 822px;
+}
+.board-menu-list{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 100px;
+}
+.menu{
+  background-size: cover;
+  background-position: center top;
+  min-height: calc(100vh - 70px);
+}
+.board-header{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 80px 100px 40px;
+}
+.board-menu-wrap h1{
+  text-transform: uppercase;
+  font-family: 'PWChalk', serif;
+  font-size: 70px;
+  margin: 0;
+  color: #fff;
+}
+.board-menu-wrap h2{
+  text-transform: uppercase;
+  font-family: 'PWChalk', serif;
+  color: #fff;
+}
+.gooseWings{
+  width: 140px;
+  height: 90px;
+  padding-right: 25px;
+}
+.menu_list{
+  list-style-type: none;
+  width: 280px;
+  margin: 0 auto;
+  padding: 30px 0;
+  overflow: hidden;
+}
+.menu_list a{
+  text-decoration: none;
+  color: #fff;
+}
+.menu_list a:hover{
+  text-decoration: underline;
+}
+.menu_item{
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+  font-style: italic;
+  padding-bottom: 20px;
+}
+.mobile-h1{
+  display: none;
+}
+.mobile-menu{
+  display: none;
+}
+.address{
+  font-size: 24px;
+}
+.socials{
+  font-size: 46px;
+}
+.socials a{
+  color: #fff;
+}
+.facebook-icon{
+  margin-right: 20px;
+}
+.reviews{
+  padding: 80px 30px;
+  background-size: cover;
+}
+.review-item-wrap{
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+.review-item{
+  max-width: 580px;
+  font-size: 20px;
+  color: #C7C7C7;
+  padding: 20px 40px 0;
+  margin: 0 60px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  border: 1px solid #fff;
+}
+.review-top-block{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.review-text,
+.reviewer{
+  font-style: italic;
+}
+.rates{
+  display: flex;
+  justify-content: space-between;
+  font-family: 'OpenSans', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  padding: 40px 0;
+}
+.rate-name{
+  padding-bottom: 10px;
+}
+.review-text{
+  line-height: 1.5em;
+  padding-bottom: 50px;
+}
+.total_rate{
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: 40px;
+  font-family: Times;
+  line-height: 1;
+}
+.total_rate::before {
+  content: '★★★★★';
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.load-more{
+  display: none;
+  color: #C7C7C7;
+  border: 2px solid #fff;
+  background: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 15px 30px;
+  border-radius: 2px;
+  font-size: 20px;
+  font-family: "Merriweather", cursive;
+  font-style: italic;
+  cursor: pointer;
+  margin: 0 auto;
 }
 
-.App-link {
-  color: #09d3ac;
+.dish-details{
+  background-size: cover;
+  background-position: center;
+}
+.dish-details-inner-wrap{
+  padding: 100px 0;
+  max-width: 1130px;
+  margin: auto;
+}
+.dish-wrapper{
+  display: flex;
+  justify-content: space-between;
+  color: #BEA58C;
+}
+.dish-wrapper p{
+  padding: 10px 0;
+}
+.dish-wrapper span{
+}
+.left{
+  flex-basis: 60%;
+  padding-right: 40px;
+  font-size: 24px;
+}
+.left-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.left .price{
+  font-size: 51px;
+}
+.ingridients p{
+  padding-top: 0;
+  margin-top: 0;
+}
+.right{
+  flex-basis: 40%;
+  background-size: cover;
+  background-position: center;
+}
+.back{
+  text-decoration: none;
+  color: #BEA58C;
+  display: block;
+  margin-bottom: 30px;
+}
+.back:hover{
+  text-decoration: underline;
+}
+@media only screen and (max-width: 1200px) {
+  .dish-details-inner-wrap{
+    max-width: 640px;
+    margin: auto;
+    padding: 100px 20px;
+    font-size: 18px;
+  }
+  .dish-wrapper{
+    flex-direction: column;
+  }
+  .left{
+    padding-right: 0;
+    font-size: 18px;
+  }
+  .right{
+    min-height: 300px;
+    order: -1;
+  }
+}
+
+@media only screen and (max-width: 1140px) {
+  .board-menu-wrap{
+    display: none;
+  }
+  .menu{
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+  }
+  .menu_logo{
+    width: 72px;
+    height: 112px;
+    padding: 0 40px;
+  }
+  .mobile-h1{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .mobile-menu{
+    background: #000;
+    padding: 40px 20px;
+    display: block;
+  }
+  .menu_list{
+    list-style-type: none;
+    max-width: 640px;
+    width: auto;
+  }
+  .menu_list a{
+    color: #BEA58C;
+  }
+  .menu_item{
+    color: #BEA58C;
+    font-size: 38px;
+  }
+  .review-item-wrap{
+    flex-direction: column;
+  }
+  .review-item{
+    max-width: 560px;
+    margin: auto;
+    background: none;
+    border-radius: 0px;
+    border: none;
+    padding-bottom: 40px;
+  }
+  .review-text{
+    border-bottom: 1px solid #fff;
+  }
+  .load-more{
+      display: block;
+  }
+}
+
+@media only screen and (max-width: 998px) {
+  .header,
+  footer{
+    padding: 15px 0;
+  }
+  .inner-header{
+    flex-direction: column;
+    min-height: 120px;
+  }
+  .header-right{
+    justify-content: space-around;
+    min-width: 480px;
+  }
+  .open_hours{
+    flex-basis: auto;
+  }
+  .socials{
+    order: -1;
+  }
+  .address{
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .goose_name{
+    font-size: 30px;
+  }
+  .logo{
+    padding-right: 10px;
+    display: block;
+    margin: auto;
+  }
+  .header-right{
+    flex-direction: column;
+    min-width: auto;
+  }
+  .open_hours{
+    font-size: 16px;
+  }
+  .tel{
+    font-size: 20px;
+  }
+  .menu{
+    min-height: 200px;
+  }
+  .menu_logo{
+    padding: 0 20px;
+    width: 56px;
+    height: 88px;
+
+  }
+  h1{
+    font-size: 40px;
+  }
+  .menu_item{
+    font-size: 24px;
+  }
+  .review-top-block,
+  .rates{
+    flex-direction: column;
+  }
+  .rate-block{
+    padding-bottom: 20px;
+  }
+
 }
