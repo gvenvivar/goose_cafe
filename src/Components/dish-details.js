@@ -1,6 +1,15 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import bg from '../img/dish-details.jpg';
 import dishExample from '../img/dish-example.jpg'
+import FirebaseContext from '../Firebase/context.js';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
 
 const backgroundImage = {
   backgroundImage: `url(${bg})`
@@ -10,25 +19,37 @@ const dishExampleImg = {
 }
 
 const DishDetails = ()=>{
+  const firebase = React.useContext(FirebaseContext);
+  const {category, dishname} = useParams();
+  const [item, setitem] = useState([]);
+
+  useEffect(()=>{
+    let ref = firebase.firestore().collection(`menu/all/${category}`).doc(`${dishname}`);
+    const x = ref.get().then(doc=>{
+      const data = doc.data();
+      setitem(data);
+    })
+    console.log(typeof(x))
+  },[setitem])
+
   return(
     <section className="dish-details" style={backgroundImage}>
       <div className="dish-details-inner-wrap">
-        <a href='#' className='back'>Back to menu</a>
+        <Link to='/' className='back'>Back to menu</Link>
+
         <div className="dish-wrapper">
           <div className="left">
             <div className="left-header">
-              <h3>Pancakes de lemon</h3>
-              <div className='price'>12$</div>
+              <h3>{item.name}</h3>
+              <div className='price'>{item.price}$</div>
             </div>
-            <p className="desc">
-              A pancake (or hotcake, griddlecake, or flapjack, not to be confused with oat bar flapjacks) is a flat cake, often thin and round, prepared from a starch-based batter that may contain eggs, milk and butter and cooked on a hot surface such as a griddle or frying pan, often frying with oil or butter. Archaeological evidence suggests that pancakes were probably the earliest and most widespread cereal food eaten in prehistoric societies.
-            </p>
+            <p className="desc">{item.description}</p>
             <div className='ingridients'>
               <span>Ingridients:</span>
-              <p>Flour, milk, eggs, sugar, butter and seasoned berries.</p>
+              <p>{item.ingridients}</p>
             </div>
-            <p>Cooking time: 10 min</p>
-            <p>Grams:  300g</p>
+            <p>Cooking time: {item.time} min</p>
+            <p>Grams:  {item.gramms}</p>
           </div>
           <div className="right" style={dishExampleImg}></div>
         </div>
