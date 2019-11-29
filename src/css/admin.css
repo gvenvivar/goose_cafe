@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+.admin-panel{
+  font-size: 32px;
+  font-family: "Roboto", sans-serif;
+  border: 1px solid #000;
+}
+.admin-panel-header{
+  height: 100px;
+  background: #FF6F00;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  padding: 0 100px;
+}
+.admin-panel-name{
+  font-size: 50px;
+  font-weight: bold;
+}
+.admin-panel-main{
+  display: flex;
+  justify-content: space-between;
+}
+.admin-panel-sections{
+  flex-basis: 20%;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #000;
+}
+.admin-panel-section.dark{
+  background: #514E4E;
+  color: #fff;
+  cursor: auto;
+}
+.admin-panel-section{
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #000;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+}
+.admin-panel-section.active{
+  background: #AEAEAE;
+}
+.admin-panel-content{
+  flex-basis: 80%;
+}
+.admin-panel-content-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  min-height: 60px;
+  border-bottom: 1px solid #000;
+}
+.save-changes{
+  border: 2px solid #00C10D;
+  color: #00C10D;
+  background: rgba(255, 255, 255, 0);
+  font-size: 32px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.save-changes:disabled{
+  color: #AEAEAE;
+  border: 2px solid #AEAEAE;
+}
+.admin-panel-content-main{
+  padding:  20px 50px;
+}
+.admin-panel-content-main label{
+  display: block;
+  font-size: 24px;
+}
+.admin-panel-content-main input{
+  padding: 20px 30px;
+  border-radius: 3px;
+  background: #F3EDED;
+  font-size: 18px;
+  border: 1px solid #000;
+  width: 100%;
+  box-sizing : border-box;
+}
