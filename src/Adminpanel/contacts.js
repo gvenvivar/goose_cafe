@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import FirebaseContext from '../Firebase/context.js';
-import '../css/admin.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,7 +11,12 @@ import {
 const Contacts = ()=> {
   const firebase = React.useContext(FirebaseContext);
   const [user, setUser] = useState('');
-  const [contacts, setcontacts] = useState({});
+  const [contacts, setcontacts] = useState({
+    address: '',
+    phone: '',
+    facebook: '',
+    instagram: '',
+  });
   const [disable, setdisable] = useState(true);
 
   useEffect(()=>{
@@ -53,61 +57,47 @@ const Contacts = ()=> {
     });
   }
   return (
-    <div className="admin-panel">
-      <div className="admin-panel-header">
-        <div className="admin-panel-name">Admin Panel</div>
-        <div className="admin-panel-user">{user}</div>
+    <div className="admin-panel-content">
+      <form onSubmit={onSubmit}>
+      <div className="admin-panel-content-head">
+        <div>Editing Contacts</div>
+        <button type="submit" className="save-changes large" disabled={disable}>Save changes</button>
       </div>
-      <div className="admin-panel-main">
-        <div className="admin-panel-sections">
-          <div className='admin-panel-section dark'>Sections</div>
-          <Link to='/adminpanel/contacts' className="admin-panel-section active">Contacts</Link>
-          <Link to='/adminpanel/menu' className="admin-panel-section">Menu</Link>
-          <Link to='/adminpanel/reviews' className="admin-panel-section">Reviews</Link>
-        </div>
-        <div className="admin-panel-content">
-          <form onSubmit={onSubmit}>
-          <div className="admin-panel-content-head">
-            <div>Editing Contacts</div>
-            <button type="submit" className="save-changes" disabled={disable}>Save changes</button>
-          </div>
-          <div className="admin-panel-content-main">
-            <lable>Restraunt adress</lable>
-            <input
-              name="address"
-              value={contacts.address}
-              onChange={(e)=>updateInput(e.currentTarget)}
-              type="text"
-              placeholder="adress"
-            />
-            <lable>Phone number</lable>
-            <input
-              name="phone"
-              value={contacts.phone}
-              onChange={(e)=>updateInput(e.currentTarget)}
-              type="text"
-              placeholder="phone"
-            />
-            <lable>Facebook page</lable>
-            <input
-              name="facebook"
-              value={contacts.facebook}
-              onChange={(e)=>updateInput(e.currentTarget)}
-              type="text"
-              placeholder="facebook"
-            />
-            <lable>Instagram page</lable>
-            <input
-              name="instagram"
-              value={contacts.instagram}
-              onChange={(e)=>updateInput(e.currentTarget)}
-              type="text"
-              placeholder="instagram"
-            />
-          </div>
-          </form>
-        </div>
+      <div className="admin-panel-content-main">
+        <label>Restraunt adress</label>
+        <input
+          name="address"
+          value={contacts.address}
+          onChange={(e)=>updateInput(e.currentTarget)}
+          type="text"
+          placeholder="adress"
+        />
+        <label>Phone number</label>
+        <input
+          name="phone"
+          value={contacts.phone}
+          onChange={(e)=>updateInput(e.currentTarget)}
+          type="text"
+          placeholder="phone"
+        />
+        <label>Facebook page</label>
+        <input
+          name="facebook"
+          value={contacts.facebook}
+          onChange={(e)=>updateInput(e.currentTarget)}
+          type="text"
+          placeholder="facebook"
+        />
+        <label>Instagram page</label>
+        <input
+          name="instagram"
+          value={contacts.instagram}
+          onChange={(e)=>updateInput(e.currentTarget)}
+          type="text"
+          placeholder="instagram"
+        />
       </div>
+      </form>
     </div>
   )
 }

@@ -56,7 +56,11 @@
   min-height: 60px;
   border-bottom: 1px solid #000;
 }
-.save-changes{
+.admin-panel-user{
+  cursor: pointer;
+}
+a.large,
+button.large{
   border: 2px solid #00C10D;
   color: #00C10D;
   background: rgba(255, 255, 255, 0);
@@ -64,19 +68,23 @@
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
+  text-decoration: none;
 }
 .save-changes:disabled{
   color: #AEAEAE;
   border: 2px solid #AEAEAE;
 }
-.admin-panel-content-main{
+.admin-panel-content-main,
+.dish-edit-wrapper{
   padding:  20px 50px;
 }
 .admin-panel-content-main label{
   display: block;
   font-size: 24px;
 }
-.admin-panel-content-main input{
+.admin-panel-content input,
+.admin-panel-content textarea,
+.admin-panel-content select{
   padding: 20px 30px;
   border-radius: 3px;
   background: #F3EDED;
@@ -84,4 +92,107 @@
   border: 1px solid #000;
   width: 100%;
   box-sizing : border-box;
+}
+.admin-panel-content textarea{
+  height: 300px;
+  resize: none;
+}
+.admin-panel-content select{
+  height: 63px;
+}
+.admin-panel-menu-list-header{
+  background: #514E4E;
+  color: #fff;
+}
+.flex-table{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  font-size: 16px;
+  padding: 0 20px
+}
+.flex-table:nth-child(even){
+  background: #f4f2f1;
+}
+.flex-row{
+  flex: 1;
+  text-align: center;
+  align-self: center;
+  max-height: 180px;
+}
+.editing{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+.editing button{
+  display: block;
+  width: 90px;
+  height: 40px;
+  margin: 5px auto;
+  padding: 8px 20px;
+  background: transparent;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.edit-btn{
+  width: 90px;
+  height: 40px;
+  margin: 5px auto;
+  padding: 0;
+  color: #00C10D;
+  border: 1px solid #00C10D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.editing button.delete{
+  border: 1px solid #C10021;
+}
+button.delete{
+  color: #C10021;
+  border: 2px solid #C10021;
+}
+.description{
+  flex: 0 0 300px;
+}
+.img-thumb{
+  flex: 0 0 280px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+.admin-panel-menu-list-row > .img-thumb{
+  height: 180px;
+}
+.dish-edit-wrapper{
+  display: flex;
+}
+.dish-edit-col-left{
+  flex:  0 0 75%;
+  padding-right: 50px;
+}
+.dishPhoto{
+  height: 63px;
+}
+.tumb{
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+.hide{
+  display: none;
+}
+.uploader{
+  appearance: none;
+  display: block;
+  width: 100%;
+}
+.btn-right .delete{
+  margin-right: 20px;
 }

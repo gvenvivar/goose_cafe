@@ -78,10 +78,9 @@ const MenuCategory = ({url, view})=> {
 const Home = (props)=> {
   const firebase = React.useContext(FirebaseContext);
   const [collection, setcollection] = useState([]);
-  const [menu, setmenu] = useState([]);
 
   useEffect(()=>{
-    const collections = firebase.firestore().collection('collections');
+    const collections = firebase.firestore().collection('collections').orderBy('order');
     const unsubscribe = collections.onSnapshot(snapshot => {
        const collections = snapshot.docs.map(item =>{
          return({

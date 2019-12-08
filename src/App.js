@@ -5,9 +5,7 @@ import Header from './Components/header.js'
 import Footer from './Components/footer.js'
 import Home from './Components/home.js'
 import Admin from './Adminpanel/admin.js'
-import Contacts from './Adminpanel/contacts.js'
-import MenuAdmin from './Adminpanel/menu.js'
-import ReviewsAdmin from './Adminpanel/reviews.js'
+import Adminpanel from './Adminpanel/adminpanel.js'
 import DishDetails from './Components/dish-details'
 import {
   BrowserRouter as Router,
@@ -28,8 +26,6 @@ function App() {
         setcontacts(data);
       })
   }, [setcontacts])
-console.log(contacts);
-
 
   return (
     <Router>
@@ -44,13 +40,25 @@ console.log(contacts);
           <Admin />
         </Route>
         <Route path="/adminpanel/contacts">
-          <Contacts />
+          <Adminpanel section='contacts'/>
+        </Route>
+        <Route path="/adminpanel/menu/addnewdish">
+          <Adminpanel section='addnewdish'/>
+        </Route>
+        <Route path="/adminpanel/menu/:category/:dishname">
+          <Adminpanel section='edit-dish'/>
         </Route>
         <Route path="/adminpanel/menu">
-          <MenuAdmin />
+          <Adminpanel section='menu'/>
+        </Route>
+        <Route path="/adminpanel/reviews/addnew-review">
+          <Adminpanel section='addNewReview' />
+        </Route>
+        <Route path="/adminpanel/reviews/:id">
+          <Adminpanel section='edit-review' />
         </Route>
         <Route path="/adminpanel/reviews">
-          <ReviewsAdmin />
+          <Adminpanel section='reviews' />
         </Route>
         <Route path="/">
           <Header contacts={contacts}/>

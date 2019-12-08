@@ -29,7 +29,6 @@ const DishDetails = ()=>{
       const data = doc.data();
       setitem(data);
     })
-    console.log(typeof(x))
   },[setitem])
 
   return(
@@ -51,7 +50,7 @@ const DishDetails = ()=>{
             <p>Cooking time: {item.time} min</p>
             <p>Grams:  {item.gramms}</p>
           </div>
-          <div className="right" style={dishExampleImg}></div>
+          <div className="right" style={{backgroundImage: `url(${item.url})`}}></div>
         </div>
       </div>
     </section>
